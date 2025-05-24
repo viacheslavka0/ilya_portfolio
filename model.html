@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>3D Model Viewer</title>
 
     <style>
@@ -24,7 +23,6 @@
             margin-left: 20px;
             font-size: 1em;
         }
-
     </style>
 </head>
 <body>
@@ -54,13 +52,16 @@
         controls.enableDamping = true;
         controls.dampingFactor = 0.1;
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
+        // Уменьшили яркость ambientLight
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        // Уменьшили яркость directionalLight
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.4);
         directionalLight.position.set(5, 10, 7.5);
         scene.add(directionalLight);
 
+        // Оставляем hemiLight без изменений, можно при необходимости настроить
         const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 0.6);
         hemiLight.position.set(0, 20, 0);
         scene.add(hemiLight);
