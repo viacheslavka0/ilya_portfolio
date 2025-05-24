@@ -1,9 +1,7 @@
 let form = document.getElementById("myForm");
 let status1 = document.getElementById("status");
-
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
   const data = {
     surname: form.surname.value,
     name: form.name.value,
@@ -11,7 +9,6 @@ form.addEventListener("submit", async (e) => {
     tel: form.tel.value,
     service: form.service.value
   };
-
   try {
     await fetch("https://script.google.com/macros/s/AKfycbxO_-p9iFwWRG4_-mCjU-rtSbJpx-Pj7viMtCC4DZ0GWd93fvs-vf8sblJDtXQX26xf/exec", {
       method: "POST",
@@ -21,7 +18,6 @@ form.addEventListener("submit", async (e) => {
       },
       body: JSON.stringify(data)
     });
-
     status1.textContent = "Отправлено!";
     form.reset();
   } catch (err) {
